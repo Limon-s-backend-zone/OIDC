@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Movie.API.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddDbContext<MovieDbContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", opt =>
+    {
+        opt.Authority = "https://localhost:5000";
+        opt.TokenValidationParameters = new TokenValidationParameters()
+        {
+            ValidateAudience = false
+        };
+    });
+builder.Services.AddAuthorization(opt =>
+{
+    opt.AddPolicy("ClientIdPolicy", policy=>policy.RequireClaim("client_id", "movieClient"));
+});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -24,7 +38,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

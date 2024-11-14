@@ -10,7 +10,7 @@ public class Config
         {
             new Client
             {
-                ClientId = "client",
+                ClientId = "movieClient",
 
                 // no interactive user, use the clientid/secret for authentication
                 AllowedGrantTypes = GrantTypes.ClientCredentials,
@@ -22,14 +22,14 @@ public class Config
                 },
 
                 // scopes that client has access to
-                AllowedScopes = { "api1" }
+                AllowedScopes = { "movieApi" }
             }
         };
     
     public static IEnumerable<ApiScope> ApiScopes =>
         new List<ApiScope>
         {
-            new ApiScope("api1", "My API")
+            new ApiScope("movieApi", "Movie API")
         };
     public static IEnumerable<ApiResource> ApiResources =>
         new List<ApiResource>

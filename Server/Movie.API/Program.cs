@@ -13,14 +13,14 @@ builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", opt =>
     {
         opt.Authority = "https://localhost:5000";
-        opt.TokenValidationParameters = new TokenValidationParameters()
+        opt.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateAudience = false
         };
     });
 builder.Services.AddAuthorization(opt =>
 {
-    opt.AddPolicy("ClientIdPolicy", policy=>policy.RequireClaim("client_id", "movieClient"));
+    opt.AddPolicy("ClientIdPolicy", policy => policy.RequireClaim("client_id", "movieClient", "moviesUIClient"));
 });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

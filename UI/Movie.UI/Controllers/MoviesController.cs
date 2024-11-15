@@ -65,7 +65,8 @@ public class MoviesController : Controller
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(
-        [Bind("Id,Title,Genre,Rating,ReleaseDate,ImageUrl,Owner")] Models.Movie movie)
+        [Bind("Id,Title,Genre,Rating,ReleaseDate,ImageUrl,Owner")]
+        Models.Movie movie)
     {
         // if (ModelState.IsValid)
         // {
@@ -99,7 +100,8 @@ public class MoviesController : Controller
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id,
-        [Bind("Id,Title,Genre,Rating,ReleaseDate,ImageUrl,Owner")] Models.Movie movie)
+        [Bind("Id,Title,Genre,Rating,ReleaseDate,ImageUrl,Owner")]
+        Models.Movie movie)
     {
         return View();
         // if (id != movie.Id)

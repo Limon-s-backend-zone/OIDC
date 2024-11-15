@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie.API", "Movie.API\Movi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{6C245400-D4FA-40A6-919B-B91E965A4DED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie.UI", "..\UI\Movie.UI\Movie.UI.csproj", "{9996B7D2-20F6-4BA7-8BDD-AC9940BDBDB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{6C245400-D4FA-40A6-919B-B91E965A4DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C245400-D4FA-40A6-919B-B91E965A4DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C245400-D4FA-40A6-919B-B91E965A4DED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9996B7D2-20F6-4BA7-8BDD-AC9940BDBDB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9996B7D2-20F6-4BA7-8BDD-AC9940BDBDB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9996B7D2-20F6-4BA7-8BDD-AC9940BDBDB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9996B7D2-20F6-4BA7-8BDD-AC9940BDBDB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

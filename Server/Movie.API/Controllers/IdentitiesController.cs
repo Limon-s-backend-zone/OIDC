@@ -2,11 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 
 namespace Movie.API.Controllers;
+
 [Route("api/[controller]")]
 [ApiController]
 // [Authorize("ClientIdPolicy")]
 [Authorize]
-public class IdentitiesController: ControllerBase
+public class IdentitiesController : ControllerBase
 {
     [HttpGet]
     public async Task<IActionResult> GetClaims()

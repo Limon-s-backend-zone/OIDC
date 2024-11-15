@@ -1,4 +1,3 @@
-using IdentityModel.Client;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Net.Http.Headers;
@@ -22,9 +21,10 @@ builder.Services.AddAuthentication(opt =>
         opt.Authority = "https://localhost:5000";
         opt.ClientId = "moviesUIClient";
         opt.ClientSecret = "Secret";
-        opt.ResponseType = "code";
+        opt.ResponseType = "code id_token"; //hybrid flow
         opt.Scope.Add("openid");
         opt.Scope.Add("profile");
+        opt.Scope.Add("movieApi");
         opt.SaveTokens = true;
         opt.GetClaimsFromUserInfoEndpoint = true;
     });
@@ -45,15 +45,15 @@ builder.Services.AddHttpClient("IDPClient", client =>
     client.DefaultRequestHeaders.Clear();
     client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
 });
-
+builder.Services.AddHttpContextAccessor();
 // accessing for token endpoint
-builder.Services.AddSingleton(new ClientCredentialsTokenRequest
-{
-    Address = "https://localhost:5000/connect/token",
-    ClientId = "movieClient",
-    ClientSecret = "secret",
-    Scope = "movieApi"
-});
+// builder.Services.AddSingleton(new ClientCredentialsTokenRequest
+// {
+//     Address = "https://localhost:5000/connect/token",
+//     ClientId = "movieClient",
+//     ClientSecret = "secret",
+//     Scope = "movieApi"
+// });
 
 var app = builder.Build();
 

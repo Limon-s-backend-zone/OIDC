@@ -2,12 +2,13 @@ using IdentityServer.Configs;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllersWithViews();
 builder.Services.AddIdentityServer()
     .AddInMemoryClients(Config.Clients)
     .AddInMemoryApiScopes(Config.ApiScopes)
-    // .AddInMemoryIdentityResources(Config.IdentityResources)
+    .AddInMemoryIdentityResources(Config.IdentityResources)
     // .AddInMemoryApiResources(Config.ApiResources)
-    // .AddTestUsers(Config.TestUsers)
+    .AddTestUsers(Config.TestUsers)
     .AddDeveloperSigningCredential();
 
 //
@@ -20,11 +21,14 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 
+app.UseRouting();
 app.UseIdentityServer();
-// app.UseAuthorization();
+app.UseAuthorization();
 
-
-// app.MapControllers();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

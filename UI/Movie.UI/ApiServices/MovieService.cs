@@ -40,7 +40,7 @@ public class MovieService : IMovieService
     public async Task<IEnumerable<Models.Movie>> GetMoviesAsync()
     {
         var httpClient = _httpClientFactory.CreateClient("MovieApiClient");
-        var request = new HttpRequestMessage(HttpMethod.Get, "api/Movies");
+        var request = new HttpRequestMessage(HttpMethod.Get, "Movies");
         var httResponse = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead)
             .ConfigureAwait(false);
 

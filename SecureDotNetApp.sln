@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{450FE2E6-6FF7-45DB-A20C-D068824FCDA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie.API", "Server\Movie.API\Movie.API.csproj", "{61B4F143-37A1-4057-AB83-97334FD01232}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "Server\IdentityServer\IdentityServer.csproj", "{FF207B15-626B-4458-874E-96D21B66E2BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{80EBFBF0-71CF-40D8-ADA2-BDC512690E72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie.UI", "UI\Movie.UI\Movie.UI.csproj", "{B6F4DA43-AFEA-4547-A2A9-344C900A7934}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{8AD273CE-B4F4-401B-9713-19CBF008FCB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocelot.ApiGateway", "Infrastructure\Ocelot.ApiGateway\Ocelot.ApiGateway.csproj", "{70427ACB-C7E0-4EE1-8BB9-68E8775DD387}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61B4F143-37A1-4057-AB83-97334FD01232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61B4F143-37A1-4057-AB83-97334FD01232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61B4F143-37A1-4057-AB83-97334FD01232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61B4F143-37A1-4057-AB83-97334FD01232}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF207B15-626B-4458-874E-96D21B66E2BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF207B15-626B-4458-874E-96D21B66E2BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF207B15-626B-4458-874E-96D21B66E2BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF207B15-626B-4458-874E-96D21B66E2BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6F4DA43-AFEA-4547-A2A9-344C900A7934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6F4DA43-AFEA-4547-A2A9-344C900A7934}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6F4DA43-AFEA-4547-A2A9-344C900A7934}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6F4DA43-AFEA-4547-A2A9-344C900A7934}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70427ACB-C7E0-4EE1-8BB9-68E8775DD387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70427ACB-C7E0-4EE1-8BB9-68E8775DD387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70427ACB-C7E0-4EE1-8BB9-68E8775DD387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70427ACB-C7E0-4EE1-8BB9-68E8775DD387}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{61B4F143-37A1-4057-AB83-97334FD01232} = {450FE2E6-6FF7-45DB-A20C-D068824FCDA5}
+		{FF207B15-626B-4458-874E-96D21B66E2BE} = {450FE2E6-6FF7-45DB-A20C-D068824FCDA5}
+		{B6F4DA43-AFEA-4547-A2A9-344C900A7934} = {80EBFBF0-71CF-40D8-ADA2-BDC512690E72}
+		{70427ACB-C7E0-4EE1-8BB9-68E8775DD387} = {8AD273CE-B4F4-401B-9713-19CBF008FCB3}
+	EndGlobalSection
+EndGlobal

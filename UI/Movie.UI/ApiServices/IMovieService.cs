@@ -1,4 +1,6 @@
-﻿namespace Movie.UI.ApiServices;
+﻿using Movie.UI.Models;
+
+namespace Movie.UI.ApiServices;
 
 public interface IMovieService
 {
@@ -7,4 +9,5 @@ public interface IMovieService
     Task<Models.Movie> CreateMovieAsync(Models.Movie movie);
     Task<Models.Movie> UpdateMovieAsync(Models.Movie movie);
     Task DeleteMovieAsync(int id);
+    Task<UserInfoViewModel> GetUserInfoAsync();
 }

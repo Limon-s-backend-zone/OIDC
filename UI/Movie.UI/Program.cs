@@ -1,5 +1,8 @@
+using IdentityModel;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
 using Movie.UI.ApiServices;
 using Movie.UI.Helpers;
@@ -15,7 +18,10 @@ builder.Services.AddAuthentication(opt =>
         opt.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
         opt.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
     })
-    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opt =>
+    {
+        opt.AccessDeniedPath = "/Home/AccessDenied";
+    })
     .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, opt =>
     {
         opt.Authority = "https://localhost:5000";
@@ -24,9 +30,21 @@ builder.Services.AddAuthentication(opt =>
         opt.ResponseType = "code id_token"; //hybrid flow
         opt.Scope.Add("openid");
         opt.Scope.Add("profile");
+        opt.Scope.Add("address");
+        opt.Scope.Add("email");
+        
+        opt.Scope.Add("roles");
+        opt.ClaimActions.MapUniqueJsonKey("role", "role");
+        
         opt.Scope.Add("movieApi");
         opt.SaveTokens = true;
         opt.GetClaimsFromUserInfoEndpoint = true;
+
+        opt.TokenValidationParameters = new TokenValidationParameters()
+        {
+            NameClaimType = JwtClaimTypes.GivenName,
+            RoleClaimType = JwtClaimTypes.Role
+        };
     });
 
 builder.Services.AddTransient<AuthenticationDelegatingHandler>();

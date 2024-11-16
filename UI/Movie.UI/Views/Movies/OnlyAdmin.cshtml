@@ -1,0 +1,30 @@
+﻿@model UserInfoViewModel
+
+@{
+    ViewBag.Title = "Only Admin";
+    Layout = "_Layout";
+}
+
+<h2>Only Admin</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Claim types</th>
+        <th>Claim Values</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.UserInfoDictionary)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Key)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+        </tr>
+    }
+    
+    </tbody>
+</table>
